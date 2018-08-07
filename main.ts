@@ -110,3 +110,59 @@ function suerFunction(){
     ironman_scope();
 }
 suerFunction();
+
+// Arrow Function
+function aMultiply(number1:number, number2:number): number{
+    return number1+number2;
+}
+console.log(aMultiply(3,5));
+//1.Anonymous function
+let aaMultiply = function(number1:number, number2:number): number{
+    return number1+number2;
+} 
+console.log(aaMultiply);
+console.log(aaMultiply(4,5));
+//2.Fat Arrow function
+let aaaMultiply = (number1:number, number2:number):number => number1+number2;
+console.log(aaaMultiply);
+console.log(aaaMultiply(5,5));
+
+// Rest & Spread
+// 1. Spread
+let Snumbers = [1,2,3,4,5];
+console.log(Snumbers);
+console.log(...Snumbers);
+console.log('max value', Math.max(1,2,3,4,5,6));
+// console.log('max value', Math.max(Snumbers)); -- 배열을 넣기 때문에 오류
+console.log('max value', Math.max(...Snumbers)); //-- 배열을 풀어넣어주기때문에 가능
+// 2. Rest
+function totalWage(numbers:number[]){
+    let sum = 0;
+    for(let i in numbers){
+        sum += numbers[i];
+    }
+    return sum;
+}
+// console.log(totalWage(10,20));  //argument는 배열을 요청하기 때문에 오류 발생
+console.log(totalWage([10,20]));    // 배열로 만들어서 넣어주는 방법이 있음
+// 또는 function totalWage(...numbers:number[]){ 로 수정해주면 10,20으로 넣어줄수 있음
+function totalWage2(fixedPay:number, ...numbers:number[]){
+    let sum = 0;
+    for(let i in numbers){
+        sum += numbers[i];
+    }
+    return sum+fixedPay;
+}
+console.log(totalWage2(100,10,20)); // 맨앞에 고정값을 지정하고 뒤의 숫자들은 배열을 spred해서 입력 가능
+
+//Template Literals
+let hero1 = "superMan";
+let address1 = "jejudo";
+let introduction = hero1 + " lives at " + address1;
+console.log(introduction);
+let introduction2 = `${hero1} lives at ${address1}`;
+console.log(introduction2);
+
+
+
+
